@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Add styles for the delete icon */
+        .delete-btn {
+            color: red;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo-container">
+                <img src="image/logo1.jpeg" alt="School Logo" class="school-logo">
+                <h1>SUMMIT UNIVERSITY</h1>
+            </div>
+            <div class="profile-banner">
+                <!-- <img src="image/profile-banner.png" alt="Profile Banner" class="profile-banner-img"> -->
+            </div>
+            <div class="student-info">
+                <h2>OLATUNDE JOSEPH ENITAN</h2>
+                <p>POLITICAL SCIENCE | OYO, NIGERIA | <span class="status">CURRENT</span></p>
+            </div>
+        </header>
+
+        <!-- Academic and Semester Information -->
+        <section class="academic-info">
+            <p>Academic Session: <strong>2023/2024</strong></p>
+            <p>Semester: <strong>Harmattan</strong></p>
+        </section>
+
+        <!-- Profile Section -->
+        <section class="profile-section">
+            <h3>Profile</h3>
+            <div class="profile-details">
+                <p><strong>ABOUT:</strong></p>
+                <p>POLITICAL SCIENCE</p>
+                <p>POLITICAL SCIENCE</p>
+
+                <p class="contacts"><strong>CONTACTS:</strong></p>
+                <p class="contacts">olatundejoseph133@gmail.com</p>
+                <p class="contacts">8164755851</p>
+
+                <p class="academic-information"><strong>ACADEMIC INFORMATION:</strong></p>
+                <p class="academic-information">Matric Number: <span>2021050045</span></p>
+            </div>
+            <button class="more-details-btn">More details</button>
+        </section>
+
+        <!-- Registration History Section -->
+        <section class="registration-history">
+            <h3>Registration History</h3>
+            <!-- <div class="history-record" id="history1">
+                <p><strong>PAB - 2022/2023</strong></p>
+                <p>100H | Enrolled Courses: 10 | Units: 24 <span class="status">Completed</span></p>
+                <p>Date: 03/11/2023</p>
+                <button class="print-btn" onclick="printSection('history1')">Print</button>
+                <button class="delete-btn" onclick="deleteRegistration('history1')"><i class="fas fa-trash"></i></button>
+            </div>
+            <div class="history-record" id="history2">
+                <p><strong>PAB - 2022/2023</strong></p>
+                <p>100H | Enrolled Courses: 10 | Units: 23 <span class="status">Completed</span></p>
+                <p>Date: 29/10/2023</p>
+                <button class="print-btn" onclick="printSection('history2')">Print</button>
+                <button class="delete-btn" onclick="deleteRegistration('history2')"><i class="fas fa-trash"></i></button>
+            </div> -->
+            <!-- Dynamic registration history will be added here -->
+            <div id="new-registrations"></div>
+
+            <a href="registration.html">
+                <button class="register-course-btn">Register Course</button>
+            </a>
+        </section>
+    </div>
+
+    <script>
+        function printSection(sectionId) {
+            var printContents = document.getElementById(sectionId).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+        function deleteRegistration(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.remove();
+                // Optionally, update localStorage if you are storing registrations there
+                updateLocalStorage();
+            }
+        }
+
+        function updateLocalStorage() {
+            const newRegistrations = Array.from(document.querySelectorAll('.history-record')).map(record => {
+                return {
+                    courseCode: record.querySelector('p').innerText,
+                    courseType: record.querySelector('p:nth-of-type(2)').innerText.split('|')[0].trim(),
+                    enrolledCourses: record.querySelector('p:nth-of-type(2)').innerText.split('|')[1].trim(),
+                    units: record.querySelector('p:nth-of-type(2)').innerText.split('|')[2].trim(),
+                    date: record.querySelector('p:nth-of-type(3)').innerText.split(': ')[1].trim()
+                };
+            });
+            localStorage.setItem('newRegistrations', JSON.stringify(newRegistrations));
+        }
+
+        function loadNewRegistrations() {
+            const newRegistrations = JSON.parse(localStorage.getItem('newRegistrations')) || [];
+            const newRegistrationsContainer = document.getElementById('new-registrations');
+            
+            newRegistrations.forEach((registration, index) => {
+                const div = document.createElement('div');
+                div.className = 'history-record';
+                div.id = `history-new-${index}`;
+                div.innerHTML = `
+                    <p><strong>${registration.courseCode}</strong></p>
+                    <p>${registration.courseType} | Enrolled Courses: ${registration.enrolledCourses} | Units: ${registration.units} <span class="status">Completed</span></p>
+                    <p>Date: ${registration.date}</p>
+                    <button class="print-btn" onclick="printSection('history-new-${index}')">Print</button>
+                    <button class="delete-btn" onclick="deleteRegistration('history-new-${index}')"><i class="fas fa-trash"></i></button>
+                `;
+                newRegistrationsContainer.appendChild(div);
+            });
+        }
+
+        window.onload = loadNewRegistrations;
+    </script>
+</body>
+</html>

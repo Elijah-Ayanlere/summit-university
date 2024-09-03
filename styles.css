@@ -1,0 +1,391 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0 15px; /* Add some padding for mobile devices */
+}
+
+.login-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 500px;
+    max-width: 400px; /* Ensure it doesn't exceed a certain width on larger screens */
+    text-align: center;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 80px; /* Smaller logo size for better mobile compatibility */
+    height: auto;
+}
+
+.login-container h2 {
+    position: relative;
+    margin-bottom: 20px;
+    color: #333333;
+    font-size: 22px; /* Slightly smaller font size */
+    top: 10px;
+}
+
+.login-container h4 {
+    position: relative;
+    margin-bottom: 20px;
+    color: #333333a8;
+    font-size: 22px; /* Slightly smaller font size */
+    top: 10px;
+}
+
+#loginForm{
+    position: relative;
+    top: 20px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #555555;
+    font-size: 14px; /* Adjusted for smaller screens */
+}
+
+.input-group input {
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 14px; /* Adjusted for smaller screens */
+}
+
+.input-group button {
+    width: 100%;
+    padding: 12px;
+    background-color: #3b7cf6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    top: 20px;
+}
+
+.input-group button:hover {
+    background-color: #2f69cc;
+}
+
+.password-group #togglePassword {
+    position: absolute;
+    right: 25px;
+    top: 48%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #888;
+}
+
+.input-group #rememberMe{
+    position: relative;
+    top: 18px;
+    right: 70px;
+}
+
+#error-message {
+    color: red;
+    margin-top: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 15px;
+        height: 500px;
+    }
+
+    .logo {
+        width: 70px; /* Further reduce logo size on very small screens */
+    }
+
+    #loginForm{
+        position: relative;
+        top: 20px;
+    }
+
+    .login-container h2 {
+        position: relative;
+        font-size: 20px; /* Further reduce heading size */
+        top: 10px;
+    }
+
+    .input-group input {
+        font-size: 14px;
+        width: 90%;
+    }
+
+    .input-group button{
+        position: relative;
+        top: 20px;
+    }
+
+    .input-group #rememberMe{
+        position: relative;
+        top: 18px;
+        right: 55px;
+    }
+}
+
+
+/* DASHBOARD SECTION */
+.dashboard-container {
+    max-width: 900px;
+    min-width: 98%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    /* margin-top: 50px; */
+}
+
+/* Header Section */
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.school-logo {
+    height: 60px;
+    margin-right: 15px;
+}
+
+.profile-banner {
+    margin-top: 15px;
+}
+
+.profile-banner-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.student-info {
+    margin-top: 10px;
+}
+
+.student-info h2 {
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+.student-info p {
+    font-size: 14px;
+    color: #777;
+}
+
+.student-info .status {
+    color: green;
+    font-weight: bold;
+}
+
+/* Academic and Semester Info */
+.academic-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Profile Section */
+.profile-section {
+    margin: 20px 0;
+}
+
+.profile-section h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.profile-details p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+.profile-details .contacts{
+    position: relative;
+    top: 20px;
+}
+
+.profile-details .academic-information{
+    position: relative;
+    top: 40px;
+}
+
+.more-details-btn {
+    margin-top: 45px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Registration History */
+.registration-history {
+    margin: 20px 0;
+}
+
+.registration-history h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.history-record {
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+}
+
+.history-record p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.history-record .status {
+    color: green;
+    font-weight: bold;
+}
+
+.print-btn, .register-course-btn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Registration style */
+.registration-container {
+    max-width: 900px;
+    min-width: 30%;
+    margin: 2rem auto;
+    margin-top: 130px;
+    padding: 1rem;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.registration-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.registration-header h1 {
+    margin: 0;
+    font-size: 2rem;
+    color: #333;
+}
+
+main {
+    padding: 0 1rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input {
+    width: 90%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.125rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.back-link{
+    position: relative;
+    text-align: center;
+    top: 10px;
+}
+
+.back-link a{
+    color: #007bff;
+    text-decoration: none;
+}
+
+.registration-footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: #888;
+}
+
+.registration-footer p {
+    margin: 0;
+    font-size: 0.875rem;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .dashboard-container {
+        margin-top: 350px;
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .registration-container {
+        min-width: 90%;
+    }
+}
